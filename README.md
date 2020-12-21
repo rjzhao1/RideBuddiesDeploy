@@ -99,7 +99,7 @@ One of the problem I ran into is how to convert the Ride entries into location m
 
 ---
 
-[Database Schema](https://github.com/rjzhao1/RideBuddiesDeploy/wiki/Schema)
+[Database Schema](https://github.com/rjzhao1/RideBuddiesDeploy/wiki/Schema)\
 [API Endpoints](https://github.com/rjzhao1/RideBuddiesDeploy/wiki/API-Endpoints)
 
 ---
