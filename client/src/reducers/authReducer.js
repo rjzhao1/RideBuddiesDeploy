@@ -9,7 +9,10 @@ import {
     loading: false
   };
   export default function(state = initialState, action) {
+    //Take actions depending on type
     switch (action.type) {
+      //If current action is SET_CURRENT_USER
+      //Set isAuthenictated and user to current user
       case SET_CURRENT_USER:
         return {
           ...state,

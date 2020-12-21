@@ -26,6 +26,7 @@ export const loginUser = userData => dispatch => {
     .post("/api/users/login", userData)
     .then(res => {
 
+      //Store token into localStorage
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
 
@@ -33,6 +34,8 @@ export const loginUser = userData => dispatch => {
 
       const decoded = jwt_decode(token);
 
+      //calls setCurrent User to set the type 
+      //to SET_CURRENT_USER and update the current user
       dispatch(setCurrentUser(decoded));
     })
     .catch(err =>
