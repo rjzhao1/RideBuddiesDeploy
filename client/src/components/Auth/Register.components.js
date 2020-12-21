@@ -59,13 +59,17 @@ class Register extends Component{
             <div>
                 <br />
                 <div className="container">
+                        {/* Header For the register form */}
                         <div style={{ paddingLeft: "11.250px" }}>
                             <h4><b>Register</b> below</h4>
                             <p className="grey-text text-darken-1">
                             Already have an account? <Link to="/login">Log in</Link>
                             </p>
                         </div>
+
+                        {/* Registration  Form*/}
                         <form noValidate onSubmit={this.onSubmit}>
+                            {/* Username Field */}
                             <div className="form-group col s12">
                                 <label>Username</label>
                                 <input
@@ -81,7 +85,7 @@ class Register extends Component{
                                 <p className="text-danger">{errors.username}</p>
                             </div>
                             
-
+                            {/* Email Field */}
                             <div className="form-group col s12">
                                 <label>Email</label>
                                 <input
@@ -98,6 +102,7 @@ class Register extends Component{
                                 <p className="text-danger">{errors.email}</p>
                             </div>
 
+                            {/* Password Field */}
                             <div className="form-group col s12">
                                 <label>Password</label>
                                 <input
@@ -113,7 +118,7 @@ class Register extends Component{
                                 <p className="text-danger">{errors.password}</p>
                             </div>
                             
-                            
+                            {/* Confirm Password Field */}
                             <div className="form-group col s12">
                                 <label>Confirm Password</label>
                                 <input
@@ -129,7 +134,8 @@ class Register extends Component{
                                 />
                                 <p className="text-danger">{errors.password2}</p>
                             </div>
-
+                            
+                            {/* Submit Button */}
                             <div style={{ paddingLeft: "11.250px" }}>
                                 <button
                                 style={{
