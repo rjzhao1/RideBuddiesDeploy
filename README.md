@@ -29,6 +29,8 @@ to create a search bar so that Users could search for where they want to go and 
 
 ![](screenshot/map.png)
 
+As the user is typing in the search bar, the search bar will provide suggestion to possible addresses. Once the user have entered an address, Google Map's geolocation function will turn the address into latitude and longitude.
+
 ```
 const PlacesAutocomplete  = props =>{
     const{
@@ -76,6 +78,16 @@ const PlacesAutocomplete  = props =>{
 
     )
 }
+```
+
+After getting the latitude and longitude, the panTo function will get called and zoom to that location.
+
+```
+  panTo({lat,lng}){
+        this.state.map.panTo({lat,lng});
+        this.state.map.setZoom(15);
+        this.setState({currlat:lat,currlong:lng});
+   }
 ```
 
 # Additional Information
