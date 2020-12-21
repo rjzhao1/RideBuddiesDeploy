@@ -18,7 +18,8 @@ class Register extends Component{
     }
 
     componentDidMount() {
-        // If logged in and user navigates to Register page, should redirect them to dashboard
+        // If logged in and user navigates to Register page, 
+        // should redirect them to dashboard
         if (this.props.auth.isAuthenticated) {
           this.props.history.push("/dashboard");
         }
@@ -26,6 +27,7 @@ class Register extends Component{
 
     componentWillReceiveProps(nextProps){
         
+        //Display errors if there is set errors if there is any errors
         if(nextProps.errors){
             this.setState({
                 errors:nextProps.errors
@@ -38,6 +40,7 @@ class Register extends Component{
         this.setState({[e.target.id]:e.target.value});
     };
 
+    //Submits the form to Register a new User
     onSubmit = e => {
         e.preventDefault();
         const newUser = {
@@ -110,7 +113,7 @@ class Register extends Component{
                                 <p className="text-danger">{errors.password}</p>
                             </div>
                             
-
+                            
                             <div className="form-group col s12">
                                 <label>Confirm Password</label>
                                 <input

@@ -17,13 +17,16 @@ class Login extends Component{
     }
 
     componentDidMount() {
-        // If logged in and user navigates to Login page, should redirect them to dashboard
+        // If logged in and user navigates to Login page,
+        // should redirect them to dashboard
         if (this.props.auth.isAuthenticated) {
           this.props.history.push("/dashboard");
         }
       }
 
     componentWillReceiveProps(nextProps){
+        
+        //Display errors if there is set errors if there is any errors
         if(nextProps.auth.isAuthenticated){
             this.props.history.push("/dashboard");
         }
@@ -35,10 +38,12 @@ class Login extends Component{
         }
     }
 
+    //Change state of email and password
     onChange = e =>{
         this.setState({[e.target.id]:e.target.value});
     };
 
+    //Submits the form to Login user
     onSubmit = e => {
         e.preventDefault();
         const User = {
@@ -47,6 +52,7 @@ class Login extends Component{
         };
         this.props.loginUser(User);
     };
+
 
     render(){
         const {errors} =this.state;
@@ -63,7 +69,7 @@ class Login extends Component{
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
                          
-
+                
                             <div className="form-group col s12">
                                 <label>Email</label>
                                 <input
@@ -134,6 +140,7 @@ Login.propTypes = {
     errors: PropTypes.object.isRequired
 }
 
+//Maps the state of the components to props
 const mapStateToProps = state =>({
     auth:state.auth,
     errors:state.errors
