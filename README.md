@@ -1,12 +1,15 @@
 # RideBuddies
 
 [Live Demo](https://ride-buddies.herokuapp.com/)
+RideBuddies is an rideshare application where you can host are find rides with other users. Whether you need a find a ride to
+get Boba or need a way to get back home from college, RideBuddies got you covered.
+
+Ride buddies is developed with React.js, Node.js,Express, and MongoDB and is developed in 2 weeks.
 
 # Features
 
 ---
 
--  Stack used: React.js, Node.js,Express,MongoDB
 -  User can host a ride by providing information like Group Name, Seats, Destination, Pick location, Date and time.
 -  Google Map API to display Ride destinations and to better help user search for rides
 -  User Authorization and using Passport-JWT
@@ -103,3 +106,9 @@ One of the problem I ran into is how to convert the Ride entries into location m
 [API Endpoints](https://github.com/rjzhao1/RideBuddiesDeploy/wiki/API-Endpoints)
 
 ---
+
+# Possible Future additions
+
+-  A chat or comment function for communitcation between ride host and passengers
+-  A Request function for users to post ride requests
+-  Better UI for the ride list and ride information cards
