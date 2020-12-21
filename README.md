@@ -24,8 +24,7 @@ I have implemented a Navbar that allows users to navigate to different pages usi
 
 ## Google Maps API
 
-Using Google Map API, I was able to display all the rides so that users could visually the ride destinations. I also use Google Map's geolocation fuction
-to create a search bar so that Users could search for where they want to go and find if there is a ride available.
+Using Google Map API, I was able to display all the rides so that users could visually the ride destinations. For each marker there is a pop up window to show information of the ride. I also use Google Map's geocoding fuction to create a search bar so that Users could search for where they want to go and find if there is a ride available.
 
 ![](screenshot/map.png)
 
@@ -89,6 +88,12 @@ After getting the latitude and longitude, the panTo function will get called and
         this.setState({currlat:lat,currlong:lng});
    }
 ```
+
+## Creating Rides
+
+One of the problem I ran into is how to convert the Ride entries into location markers on the map. My original idea is to use Google Maps geocoding funciton to translate the ride location into latitude and longitude and map the rides. However, I found the more intuitive way is to store the latitude and longitude when creating a ride. So I refactor the search bar on the Map page so that when the user enter an address, it will automatically store the latitude and longitude into the database.
+
+![](screenshot/create-ride.png)
 
 # Additional Information
 
