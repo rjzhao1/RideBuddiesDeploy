@@ -93,7 +93,7 @@ After getting the latitude and longitude, the panTo function will get called and
 
 One of the problem I ran into is how to convert the Ride entries into location markers on the map. My original idea is to use Google Maps geocoding funciton to translate the ride location into latitude and longitude and map the rides. However, I found the more intuitive way is to store the latitude and longitude when creating a ride. So I refactor the search bar on the Map page so that when the user enter an address, it will automatically store the latitude and longitude into the database.
 
-![](screenshot/create-ride.png)
+![](screenshot/create_ride.png)
 
 # Additional Information
 
