@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+//Schema for passengers
 const passengerSchema = new Schema({
     passenger:{type:String,required:true},
     passenger_email:{type:String,required:true},
@@ -8,6 +9,7 @@ const passengerSchema = new Schema({
     timestamps:true,
 });
 
+//Schema for each ride groups
 const ridesGroupSchema = new Schema({
     host_email: {type:String,required:true},
     seats:{type:Number,required:true},

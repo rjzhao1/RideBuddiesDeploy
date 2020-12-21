@@ -28,9 +28,11 @@ require("./config/passport")(passport);
 
 const { dirname } = require('path');
 
+//Routing to API calls
 app.use('/api/users',usersRouter);
 app.use('/api/rides',ridesRouter);
 
+// Routes for deployment
 if(process.env.NODE_ENV=='production'){
   app.use('/', express.static(path.join(__dirname, '/client/build')));
 
@@ -40,12 +42,10 @@ if(process.env.NODE_ENV=='production'){
 }
 
 
-
-
 const port = process.env.PORT||5000;
 
 
-
+// Connecting to MongoDB Atlas 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true,'useFindAndModify':false})
 

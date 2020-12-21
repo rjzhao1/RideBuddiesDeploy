@@ -70,8 +70,7 @@ router.route('/add').post((req,res)=>{
 
 //DELETE /api/rides/:id
 //API call for delete a ride from database
-//Required parameters from request:
-// host_email
+//Required parameters from request: host_email
 router.route('/:id').delete((req,res)=>{
     
    Rides.findById(req.param.id)

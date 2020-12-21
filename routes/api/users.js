@@ -20,8 +20,7 @@ router.route('/').get((req,res)=>{
 
 // POST /api/users/register
 // API calls to register a user
-// Required parameters:
-// email,username,password,password2
+// Required parameters: email,username,password,password2
 router.route("/register").post((req,res)=>{
     const{errors,isValid}=validateRegister(req.body);
     if(!isValid){
@@ -53,6 +52,7 @@ router.route("/register").post((req,res)=>{
 
 //POST /api/users/login
 //API call to login a user
+//Required Parameters: email,password
 router.route("/login").post((req,res)=>{
     const {errors,isValid} = validateLogin(req.body);
 
