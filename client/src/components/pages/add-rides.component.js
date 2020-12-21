@@ -39,7 +39,7 @@ const PlacesAutocomplete = (props) => {
 		},
 	});
 	return (
-		<div className="pickup">
+		<div className="location">
 			<Combobox
 				onSelect={async (address) => {
 					setValue(address, false);
@@ -48,7 +48,7 @@ const PlacesAutocomplete = (props) => {
 					try {
 						const results = await getGeocode({ address });
 						const { lat, lng } = await getLatLng(results[0]);
-						props.onChangePickup(address, lat, lng);
+						props.onChangeLocation(address, lat, lng);
 					} catch (err) {
 						console.log(err);
 					}
@@ -91,8 +91,8 @@ class AddRide extends Component {
 			seats: 0,
 			group_Name: '',
 			pickup: '',
-			pick_lat: 0,
-			pick_lng: 0,
+			lat: 0,
+			lng: 0,
 			location: '',
 			date: new Date(),
 			time: '',
@@ -111,16 +111,17 @@ class AddRide extends Component {
 		});
 	}
 
-	onChangePickup(address, lat, lng) {
+	onChangePickup(e) {
 		this.setState({
-			pickup: address,
-			pick_lat: lat,
-			pick_lng: lng,
+			pickup: e.target.value,
 		});
 	}
-	onChangeLocation(e) {
+	onChangeLocation(address, lat, lng) {
 		this.setState({
-			location: e.target.value,
+			location: address,
+			lat: lat,
+			lng: lng,
+
 		});
 	}
 
@@ -146,8 +147,8 @@ class AddRide extends Component {
 			seats: this.state.seats,
 			group_Name: this.state.group_Name,
 			pickup: this.state.pickup,
-			pick_lat: this.state.pick_lat,
-			pick_lng: this.state.pick_lng,
+			lat: this.state.lat,
+			lng: this.state.lng,
 			location: this.state.location,
 			date: this.state.date,
 			time: this.state.time,
@@ -197,30 +198,24 @@ class AddRide extends Component {
 
 					<div className="form-group">
 						<label>Destination: </label>
-						<input
-							type="text"
-							className="form-control"
-							value={this.state.location}
-							onChange={this.onChangeLocation}
-						/>
+						<LoadScript
+							googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}
+							libraries={libraries}
+						>
+							<PlacesAutocomplete onChangeLocation={this.onChangeLocation} />
+						</LoadScript>
 						<p className="text-danger">{errors.location}</p>
 					</div>
 
 					<div className="form-group">
 						<label>Pickup: </label>
-						{/* <input 
+						<input 
                         type = "text"
                         className="form-control"
                         value = {this.state.pickup}
                         onChange={this.onChangePickup}
-                        /> */}
+                        />
 
-						<LoadScript
-							googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}
-							libraries={libraries}
-						>
-							<PlacesAutocomplete onChangePickup={this.onChangePickup} />
-						</LoadScript>
 						<p className="text-danger">{errors.pickup}</p>
 					</div>
 

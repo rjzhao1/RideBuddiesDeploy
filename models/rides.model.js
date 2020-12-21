@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const riderSchema = new Schema({
-    rider:{type:String,required:true},
-    rider_email:{type:String,required:true},
+const passengerSchema = new Schema({
+    passenger:{type:String,required:true},
+    passenger_email:{type:String,required:true},
 },{
     timestamps:true,
 });
@@ -18,7 +18,7 @@ const ridesGroupSchema = new Schema({
     location: {type:String,required:true},
     date:{type:Date,required:true},
     time:{type:String,required:true},
-    rider:[riderSchema]
+    passenger:[passengerSchema]
 },{
     timestamps:true,
 });

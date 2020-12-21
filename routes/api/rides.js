@@ -77,8 +77,8 @@ router.route('/:id').delete((req,res)=>{
 });
 
 router.route('/join/:id').post((req,res)=>{
-    const passenger = req.body.passenger;
-    const passenger_email = req.body.passenger_email;
+    const rider = req.body.rider;
+    const rider_email = req.body.rider_email;
 
     Rides.findOneAndUpdate(
         {_id:req.params.id,seats:{$gt:0}},
@@ -88,7 +88,7 @@ router.route('/join/:id').post((req,res)=>{
                 res.status(404).json('Ride Group not found or full');
                 
             }else{
-                result.passenger.push({passenger:passenger,passenger_email:passenger_email});
+                result.rider.push({rider:rider,rider_email:rider_email});
                 result.save()
                     .then(res.json("Ride Joined"))
                     .catch(err => res.status(400).json('Error: ' + err));
