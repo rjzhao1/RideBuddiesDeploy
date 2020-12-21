@@ -25,6 +25,11 @@ I have implemented a Navbar that allows users to navigate to different pages usi
 
 ![](screenshot/Dashboard.png)
 
+## Index Page
+
+The index page display all the rides available. The list of rides is recieved from the backend, then each ride is mapped to a row in a table.
+![](screenshot/index.png)
+
 ## Google Maps API
 
 Using Google Map API, I was able to display all the rides so that users could visually the ride destinations. For each marker there is a pop up window to show information of the ride. I also use Google Map's geocoding fuction to create a search bar so that Users could search for where they want to go and find if there is a ride available.
