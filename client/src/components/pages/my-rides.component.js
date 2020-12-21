@@ -54,8 +54,8 @@ class MyRidesList extends Component {
 				this.setState({
 					rides: response.data.filter(
 						(rl) =>
-							rl.rider.some(
-								(riders) => riders.rider_email === user.email
+							rl.passenger.some(
+								(passengers) => passengers.passenger_email === user.email
 							) || rl.host_email === user.email
 					),
 				});

@@ -32,8 +32,8 @@ router.route('/add').post((req,res)=>{
     const seats = Number(req.body.seats);
     const group_Name = req.body.group_Name;
     const pickup = req.body.pickup;
-    const pick_lat = req.body.pick_lat;
-    const pick_lng = req.body.pick_lng;
+    const lat = req.body.lat;
+    const lng = req.body.lng;
     const location = req.body.location;
     const date = Date.parse(req.body.date);
     const time = req.body.time;
@@ -44,8 +44,8 @@ router.route('/add').post((req,res)=>{
         seats,
         group_Name,
         pickup,
-        pick_lat,
-        pick_lng,
+        lat,
+        lng,
         location,
         date,
         time
@@ -77,8 +77,8 @@ router.route('/:id').delete((req,res)=>{
 });
 
 router.route('/join/:id').post((req,res)=>{
-    const rider = req.body.rider;
-    const rider_email = req.body.rider_email;
+    const passenger = req.body.passenger;
+    const passenger_email = req.body.passenger_email;
 
     Rides.findOneAndUpdate(
         {_id:req.params.id,seats:{$gt:0}},
@@ -88,7 +88,7 @@ router.route('/join/:id').post((req,res)=>{
                 res.status(404).json('Ride Group not found or full');
                 
             }else{
-                result.rider.push({rider:rider,rider_email:rider_email});
+                result.passenger.push({passenger:passenger,passenger_email:passenger_email});
                 result.save()
                     .then(res.json("Ride Joined"))
                     .catch(err => res.status(400).json('Error: ' + err));

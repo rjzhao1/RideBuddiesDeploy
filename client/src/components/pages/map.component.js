@@ -160,7 +160,7 @@ class RideMap extends Component{
                     >
                         {this.state.rides.map(currRide => 
                             <Marker key={currRide.id} 
-                                    position={{lat:currRide.pick_lat,lng:currRide.pick_lng}}
+                                    position={{lat:currRide.lat,lng:currRide.lng}}
                                     onClick={()=>this.setState({selected:currRide})}
                                     />)}
                         {this.state.currlat?
@@ -181,7 +181,7 @@ class RideMap extends Component{
                         
                         {this.state.selected? 
                         (<InfoWindow 
-                            position={{lat:this.state.selected.pick_lat,lng:this.state.selected.pick_lng}} 
+                            position={{lat:this.state.selected.lat,lng:this.state.selected.lng}} 
                             onCloseClick={()=>this.setState({selected:null})}>
                             <div>
                                 <h4>Seats:{this.state.selected.seats}</h4>

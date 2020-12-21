@@ -75,12 +75,12 @@ class RidesList extends Component {
 		if (!this.props.auth.isAuthenticated) {
 			window.location = '/login';
 		} else {
-			const rider = {
-				rider: this.state.user.username,
-				rider_email: this.state.user.email,
+			const passenger = {
+				passenger: this.state.user.username,
+				passenger_email: this.state.user.email,
 			};
 			axios
-				.post('/api/rides/join/' + id, rider)
+				.post('/api/rides/join/' + id, passenger)
 				.then((res) => {
 					window.alert(res.data);
 					window.location = '/rides/myRides';

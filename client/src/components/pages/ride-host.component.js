@@ -4,13 +4,13 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const Rider = (props) => (
+const Passenger = (props) => (
 	<div className="row">
 		<h5 className="col-md-2">
-			<small>{props.rider.rider}</small>
+			<small>{props.passenger.passenger}</small>
 		</h5>
 		<h5 className="col-sm-3">
-			<small>{props.rider.rider_email}</small>
+			<small>{props.passenger.passenger_email}</small>
 		</h5>
 	</div>
 );
@@ -22,7 +22,7 @@ class RidesHost extends Component {
 
 		this.state = {
 			rides: [],
-			rider: [],
+			passenger: [],
 			user: user,
 		};
 	}
@@ -34,20 +34,20 @@ class RidesHost extends Component {
 			.then((response) => {
 				this.setState({
 					rides: response.data,
-					rider: response.data.rider,
+					passenger: response.data.passenger,
 				});
 			})
 			.catch((error) => console.log(error));
 	}
 
-	riderList() {
-		return this.state.rider.map((currRider) => {
-			return <Rider rider={currRider} key={currRider._id} />;
+	passengerList() {
+		return this.state.passenger.map((currpassenger) => {
+			return <Passenger passenger={currpassenger} key={currpassenger._id} />;
 		});
 	}
 
 	render() {
-		console.log(this.state.rider);
+		console.log(this.state.passenger);
 
 		return (
 			<div className="container" style={{ minHeight: '00px' }}>
@@ -72,8 +72,8 @@ class RidesHost extends Component {
 					</div>
 
 					<div className="card-body">
-						<h4>Riders</h4>
-						{this.riderList()}
+						<h4>Passengers</h4>
+						{this.passengerList()}
 					</div>
 				</div>
 			</div>
