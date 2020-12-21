@@ -3,23 +3,35 @@ const Rides = require('../../models/rides.model');
 const validateForm = require("../../client/validation/form");
 
 
+//GET /api/rides/
+//API call to get all the rides with seats greater than 0
 router.route('/').get((req,res)=>{
     Rides.find({seats:{$gt:0}})
         .then(rides=>res.json(rides))
         .catch(err => res.status(400).json('Error '+err));
 });
 
+//GET /api/rides/view/:id
+//API call to get a ride with a certain ID 
 router.route('/view/:id').get((req,res)=>{
     Rides.findById(req.params.id)
         .then(rides=>{res.json(rides)})
         .catch(err => res.status(400).json('Error '+err));
 });
+
+//GET /api/rides/myRides
+// API call to get the Rides for a certain user
 router.route('/myRides').get((req,res)=>{
     
     Rides.find()
         .then( rides =>res.json(rides))  
         .catch(err => res.status(400).json('Error '+err));
 });
+
+//POST /api/rides/add
+//API call to add a ride 
+//Required paramaters from request: 
+//host_email,seats,group_Name,pickup,lat,lng,location,date,time
 router.route('/add').post((req,res)=>{
 
     const{errors,isValid}=validateForm(req.body);
@@ -56,6 +68,10 @@ router.route('/add').post((req,res)=>{
         .catch(err => res.status(400).json(errors));
 });
 
+//DELETE /api/rides/:id
+//API call for delete a ride from database
+//Required parameters from request:
+// host_email
 router.route('/:id').delete((req,res)=>{
     
    Rides.findById(req.param.id)
@@ -63,8 +79,6 @@ router.route('/:id').delete((req,res)=>{
         Rides.findOneAndDelete({_id:req.params.id,host_email:req.body.host_email})
         .then((result)=>{
             if(!result){
-                
-                
                 res.status(404).json('Ride Group not found');
             }else{
                 res.json('Ride Deleted');
@@ -76,6 +90,10 @@ router.route('/:id').delete((req,res)=>{
    
 });
 
+// POST /api/rides/join/:id
+// API call for joining a ride 
+// Required parameters from request:
+// passenger,passenger_email
 router.route('/join/:id').post((req,res)=>{
     const passenger = req.body.passenger;
     const passenger_email = req.body.passenger_email;

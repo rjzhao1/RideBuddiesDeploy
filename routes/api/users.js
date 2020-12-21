@@ -9,19 +9,19 @@ const keys = require("../../config/keys");
 
 
 
-
+// GET /api/users/
+// Get a certain user 
 router.route('/').get((req,res)=>{
     User.find()
         .then(users=>res.json(users))
         .catch(err => res.status(400).json('Error '+err));
 });
 
-router.route('/:id').delete((req,res)=>{
-    User.findByIdAndDelete(req.params.id)
-        .then(()=>res.json('User Deleted'))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
 
+// POST /api/users/register
+// API calls to register a user
+// Required parameters:
+// email,username,password,password2
 router.route("/register").post((req,res)=>{
     const{errors,isValid}=validateRegister(req.body);
     if(!isValid){
@@ -51,6 +51,8 @@ router.route("/register").post((req,res)=>{
     })
 });
 
+//POST /api/users/login
+//API call to login a user
 router.route("/login").post((req,res)=>{
     const {errors,isValid} = validateLogin(req.body);
 
