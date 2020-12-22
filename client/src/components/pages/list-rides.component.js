@@ -49,6 +49,7 @@ class RidesList extends Component {
 		};
 	}
 
+	// Getting all avalible rides from database
 	componentDidMount() {
 		axios
 			.get('/api/rides')
@@ -58,6 +59,7 @@ class RidesList extends Component {
 			.catch((error) => console.log(error));
 	}
 
+	// Function to delete a ride
 	deleteRides(id) {
 		axios
 			.delete('/api/rides/' + id, {
@@ -70,7 +72,7 @@ class RidesList extends Component {
 			rides: this.state.rides.filter((rl) => rl._id !== id),
 		});
 	}
-
+	// Fuction to join a ride
 	joinRide(id) {
 		if (!this.props.auth.isAuthenticated) {
 			window.location = '/login';
@@ -89,6 +91,8 @@ class RidesList extends Component {
 		}
 	}
 
+	// Function that maps each ride to a Ride Element to display 
+	// on the page
 	rideList() {
 		return this.state.rides.map((currRide) => {
 			if (currRide) {
