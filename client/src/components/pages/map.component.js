@@ -24,11 +24,13 @@ import {
 
 
 import compass from "../../img/compass.svg";
+// height and width of the map
 const mapContainerStyle = {
     height: "100vh",
     width: "100vw",
 }
 
+// Default center of the map
 const center = {
     lat:37.774929,
     lng:-122.419418,
@@ -41,6 +43,8 @@ const options = {
 
 const libraries = ["places"];
 const url= "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+
+// Component for Search Bar for Map
 const PlacesAutocomplete  = props =>{
     const{
         ready,
@@ -56,6 +60,7 @@ const PlacesAutocomplete  = props =>{
     });
     return (
         <div className='search'>
+            {/* Wrapper for the search bar and Auto suggestion List */}
             <Combobox onSelect={ async (address)=>{
                 setValue(address,false);
                 clearSuggestions();
@@ -69,12 +74,15 @@ const PlacesAutocomplete  = props =>{
                 }
                 
                 }}>
+
+                {/* Search Bar */}
                 <ComboboxInput 
                     value={value} 
                     onChange={(e)=>{setValue(e.target.value);}} 
                     disabled={!ready}
                     placeholder="Enter an address"
                     />
+                    {/* Auto Fill and Suggestion list */}
                     <ComboboxPopover>
                         <ComboboxList>
                         {status==="OK" && data.map(({id,description})=>(
@@ -88,7 +96,7 @@ const PlacesAutocomplete  = props =>{
     )
 }
 
-
+// Component for locating current location
 const Locate  = props =>{
    return <button className="locate" onClick={()=>{
        navigator.geolocation.getCurrentPosition((
@@ -104,6 +112,7 @@ const Locate  = props =>{
             <img src={compass} alt="compass - locate me" style={{width:"40px", height:"40px"}}></img>
           </button>
 }
+
 class RideMap extends Component{
     
     constructor(props){
@@ -120,6 +129,7 @@ class RideMap extends Component{
                     };
     }
 
+    // Receiving all the rides avalible from the backend
     componentDidMount(){
         axios.get('/api/rides')
             .then(response =>{this.setState({rides: response.data});
@@ -127,6 +137,7 @@ class RideMap extends Component{
             .catch((error)=> console.log(error));
     }
 
+    // Load the map object
     onMapLoad(map){
         this.setState({
             map:map
@@ -134,7 +145,7 @@ class RideMap extends Component{
     }
 
   
-
+    // Function to zoom to a certain location on the map
    panTo({lat,lng}){
         this.state.map.panTo({lat,lng});
         this.state.map.setZoom(15);
@@ -144,10 +155,12 @@ class RideMap extends Component{
         
         return(
             <div>
+                {/* Wrapper to load the scripts for the map */}
                 <LoadScript 
                     googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}
                     libraries={libraries}
                 >
+                    {/* Search bar and Current Location button */}
                     <PlacesAutocomplete panTo={this.panTo}/>
                     <Locate panTo={this.panTo}/>
 
@@ -158,11 +171,13 @@ class RideMap extends Component{
                         options={options}
                         onLoad={this.onMapLoad}
                     >
+                        {/* Markers for all avalible Rides */}
                         {this.state.rides.map(currRide => 
                             <Marker key={currRide.id} 
                                     position={{lat:currRide.lat,lng:currRide.lng}}
                                     onClick={()=>this.setState({selected:currRide})}
                                     />)}
+                        {/* Marker for current location if zoomed */}
                         {this.state.currlat?
                             <Marker key={1} 
                                    position={{lat:this.state.currlat,lng:this.state.currlong}}
@@ -170,6 +185,7 @@ class RideMap extends Component{
                                    onClick={()=>this.setState({currSelected:true})}
                                     />:""}
 
+                        {/* Info Window indicating your location when zoom */}
                         {this.state.currSelected?(
                         <InfoWindow 
                             position={{lat:this.state.currlat,lng:this.state.currlong}} 
@@ -178,7 +194,7 @@ class RideMap extends Component{
                                 <h4>You are here!</h4>
                         </InfoWindow>):null}
 
-                        
+                        {/* Info Window for each rides */}
                         {this.state.selected? 
                         (<InfoWindow 
                             position={{lat:this.state.selected.lat,lng:this.state.selected.lng}} 
