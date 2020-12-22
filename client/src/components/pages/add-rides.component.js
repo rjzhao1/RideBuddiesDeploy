@@ -149,6 +149,7 @@ class AddRide extends Component {
 		const { user } = this.props.auth;
 		console.log(user);
 
+		// Create a ride object to add to database
 		const ride = {
 			host_email: user.email,
 			seats: this.state.seats,
