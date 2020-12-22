@@ -25,6 +25,8 @@ import { LoadScript } from '@react-google-maps/api';
 
 const libraries = ['places'];
 
+// Autofill and Suggestion for the Location Field
+// Refactor from Google Maps API
 const PlacesAutocomplete = (props) => {
 	const {
 		ready,
@@ -161,7 +163,7 @@ class AddRide extends Component {
 			date: this.state.date,
 			time: this.state.time,
 		};
-
+		// API call to add new ride
 		axios
 			.post('/api/rides/add', ride)
 			.then(() => {
@@ -178,7 +180,10 @@ class AddRide extends Component {
 			<div className="container">
 				<br />
 				<h3>Create Ride Groups!</h3>
+				{/* Add rides form */}
 				<form onSubmit={this.onSubmit}>
+
+					{/* Group name Field*/}
 					<div className="form-group">
 						<label>Group Name: </label>
 						<input
@@ -190,6 +195,7 @@ class AddRide extends Component {
 						<p className="text-danger">{errors.group_Name}</p>
 					</div>
 
+					{/* Seats Field*/}
 					<div className="form-group">
 						<label>Seats: </label>
 						<input
@@ -205,6 +211,7 @@ class AddRide extends Component {
 						</p>
 					</div>
 
+					{/* Destination Field */}
 					<div className="form-group">
 						<label>Destination: </label>
 						<LoadScript
@@ -216,6 +223,7 @@ class AddRide extends Component {
 						<p className="text-danger">{errors.location}</p>
 					</div>
 
+					{/* Pickup Field */}
 					<div className="form-group">
 						<label>Pickup: </label>
 						<input 
@@ -227,6 +235,7 @@ class AddRide extends Component {
 						<p className="text-danger">{errors.pickup}</p>
 					</div>
 
+					{/* Date Field */}
 					<div className="form-group">
 						<label>Date: </label>
 						<div>
@@ -238,6 +247,7 @@ class AddRide extends Component {
 						<p className="text-danger">{errors.date}</p>
 					</div>
 
+					{/* Time Field */}
 					<div className="form-group">
 						<label>Time: </label>
 						<div>
@@ -251,6 +261,7 @@ class AddRide extends Component {
 						</div>
 					</div>
 
+					{/* Submit Button */}
 					<div className="form-group">
 						<input
 							type="submit"
