@@ -101,17 +101,20 @@ class AddRide extends Component {
 		};
 	}
 
+	// Set the state for seats
 	onChangeSeats(e) {
 		this.setState({
 			seats: e.target.value,
 		});
 	}
+
+	// Set the state for group name
 	onChangeGroupName(e) {
 		this.setState({
 			group_Name: e.target.value,
 		});
 	}
-
+	// Set the state for location, latitude and longitude
 	onChangeLocation(address, lat, lng) {
 		this.setState({
 			location: address,
@@ -119,24 +122,28 @@ class AddRide extends Component {
 			lng: lng,
 		});
 	}
+	// Set the state of pickup
 	onChangePickup(e) {
 		this.setState({
 			pickup: e.target.value,
 		});
 	}
 
+	//Set the state of Date
 	onChangeDate(date) {
 		this.setState({
 			date: date,
 		});
 	}
 
+	//Set the state of time
 	onChangeTime(time, timeString) {
 		this.setState({
 			time: timeString,
 		});
 	}
 
+	// submits the form to add a new ride
 	onSubmit(e) {
 		e.preventDefault();
 		const { user } = this.props.auth;

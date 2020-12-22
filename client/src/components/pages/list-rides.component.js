@@ -11,6 +11,7 @@ const Ride = (props) => (
 		<td>{props.rides.location}</td>
 		<td>{props.rides.date.substring(0, 10) + ' ' + props.rides.time}</td>
 		<td>{props.rides.seats}</td>
+		{/* Shows delete button if user is host, otherwise show join button */}
 		<td>
 			{props.user.email === props.rides.host_email ? (
 				<button
