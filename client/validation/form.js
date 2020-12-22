@@ -18,7 +18,9 @@ module.exports = function validateForm(data){
     if(Validator.isEmpty(data.seats)){
         errors.seats = "Seat field is required";
     }else if(Number(data.seats<=0)){
-        errors.noSeats = "Seat must be greater than 0"
+        errors.noSeats = "Seat must be greater than 0";
+    }else if(isNaN(data.seats)){
+        errors.seatNaN = "Seat is not a number";
     }
 
     if(Validator.isEmpty(data.pickup)){

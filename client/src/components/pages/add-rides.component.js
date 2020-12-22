@@ -200,6 +200,7 @@ class AddRide extends Component {
 						<p className="text-danger">
 							{errors.seats}
 							{errors.noSeats}
+							{errors.seatNaN}
 						</p>
 					</div>
 
