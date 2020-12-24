@@ -69,7 +69,7 @@ class Login extends Component{
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
                          
-                
+                            {/* Email Field */}
                             <div className="form-group col s12">
                                 <label>Email</label>
                                 <input
@@ -89,7 +89,7 @@ class Login extends Component{
                                 </p>
                             </div>
                             
-
+                            {/* Password Field */}
                             <div className="form-group col s12">
                                 <label>Password</label>
                                 <input
@@ -109,7 +109,7 @@ class Login extends Component{
                                 </p>
                             </div>
                             
-
+                            {/* Login button*/}
                             <div style={{ paddingLeft: "11.250px" }}>
                                 <button
                                     style={{
