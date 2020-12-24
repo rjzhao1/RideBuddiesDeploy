@@ -4,6 +4,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+// Passenger Element that displays passenger's name and email
 const Passenger = (props) => (
 	<div className="row">
 		<h5 className="col-md-2">
@@ -74,7 +75,7 @@ class RidesHost extends Component {
 							</h5>
 						</div>
 					</div>
-					
+
 					{/* Body of the card */}
 					<div className="card-body">
 						<h4>Passengers</h4>

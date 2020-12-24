@@ -30,11 +30,14 @@ class Navbar extends Component {
 				</Link>
 				<div className="collpase navbar-collapse">
 					<ul className="navbar-nav mr-auto">
+						{/* Index page link */}
 						<li className="navbar-item">
 							<Link to="/rides" className="nav-link">
 								Find Rides
 							</Link>
 						</li>
+
+						{/* Links to Ride form */}
 						{isLoggedIn ? (
 							<li className="navbar-item">
 								<Link to="/rides/add" className="nav-link">
@@ -44,7 +47,8 @@ class Navbar extends Component {
 						) : (
 							''
 						)}
-
+						
+						{/* Link to see user's ride */}
 						{isLoggedIn ? (
 							<li className="navbar-item">
 								<Link to="/rides/myRides" className="nav-link">
@@ -55,6 +59,7 @@ class Navbar extends Component {
 							''
 						)}
 
+						{/* Google Maps Link */}
 						<li className="navbar-item">
 							<Link to="/map" className="nav-link">
 								Ride Map
@@ -62,7 +67,10 @@ class Navbar extends Component {
 						</li>
 					</ul>
 
+					
 					<ul className="navbar-nav navbar-right">
+
+						{/* If User is logged in show Logout, otherwise show login */}
 						<li>
 							{isLoggedIn ? (
 								<Link
@@ -83,6 +91,7 @@ class Navbar extends Component {
 								</Link>
 							)}
 
+							{/* If User is not logged in, Show demo login */}
 							{!isLoggedIn ? (
 								<Link
 									to="/"
