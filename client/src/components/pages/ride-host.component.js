@@ -27,6 +27,7 @@ class RidesHost extends Component {
 		};
 	}
 
+	// Get the information of a a specific ride 
 	componentDidMount() {
 		const id = this.props.match.params.id;
 		axios
@@ -40,6 +41,7 @@ class RidesHost extends Component {
 			.catch((error) => console.log(error));
 	}
 
+	//Map all passengers to a Passenger Element
 	passengerList() {
 		return this.state.passenger.map((currpassenger) => {
 			return <Passenger passenger={currpassenger} key={currpassenger._id} />;
@@ -52,7 +54,9 @@ class RidesHost extends Component {
 		return (
 			<div className="container" style={{ minHeight: '00px' }}>
 				<Link to="/">Back to Home</Link>
+				{/* Card Showing all the information about a ride */}
 				<div className="card mb-8 box-shadow">
+					{/* Header of the card */}
 					<div className="card-header">
 						<h3>{this.state.rides.group_Name}</h3>
 						<div className="row">
@@ -70,7 +74,8 @@ class RidesHost extends Component {
 							</h5>
 						</div>
 					</div>
-
+					
+					{/* Body of the card */}
 					<div className="card-body">
 						<h4>Passengers</h4>
 						{this.passengerList()}
