@@ -33,6 +33,7 @@ class Landing extends Component{
                     <div className="container text-center p-5"> 
                         <h1>Welcome</h1>
                         <h5>Welcome to RideBuddies. Here you can organize and find a rides that you need.</h5>
+                        {/* Login and Register button */}
                         <p>
                             <Link 
                                 to="/register" 

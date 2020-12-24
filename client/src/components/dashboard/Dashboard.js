@@ -26,6 +26,7 @@ class Dashboard extends Component{
               <div className="container text-center p-5"> 
               <h1>Hey {user.username.split(" ")[0]}</h1>
               <p className="lead text-muted">You are logged in RideBuddies! Start looking for Rides Today!</p>
+              {/* Find Rides and My Rides Button */}
               <div className="col">
                 <Link to="/rides"
                   style={button_style}
