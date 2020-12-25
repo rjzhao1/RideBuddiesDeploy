@@ -45,8 +45,7 @@ module.exports = function validateForm(data){
         errors.time = "Time field is required";
     }
 
-
-
+    // return any errors
     return {
         errors,
         isValid: isEmpty(errors)
