@@ -115,5 +115,6 @@ One of the problem I ran into is how to convert the Ride entries into location m
 # Possible Future additions
 
 -  A chat or comment function for communitcation between ride host and passengers
+-  A Leave Ride Function
 -  A Request function for users to post ride requests
 -  Better UI for the ride list and ride information cards
