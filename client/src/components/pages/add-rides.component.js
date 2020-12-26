@@ -42,7 +42,7 @@ const PlacesAutocomplete = (props) => {
 	});
 	return (
 		<div className="location">
-			
+			{/* Wrapper for the search bar and Auto suggestion List */}
 			<Combobox
 				onSelect={async (address) => {
 					setValue(address, false);
@@ -57,6 +57,7 @@ const PlacesAutocomplete = (props) => {
 					}
 				}}
 			>
+				{/* Search Bar */}
 				<ComboboxInput
 					value={value}
 					onChange={(e) => {
@@ -65,6 +66,7 @@ const PlacesAutocomplete = (props) => {
 					disabled={!ready}
 					placeholder="Enter an address"
 				/>
+				{/* Auto Fill and Suggestion list */}
 				<ComboboxPopover>
 					<ComboboxList>
 						{status === 'OK' &&
