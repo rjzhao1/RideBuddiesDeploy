@@ -27,7 +27,7 @@ I have implemented a Navbar that allows users to navigate to different pages usi
 
 ## Index Page
 
-The index page display all the rides available. The list of rides is recieved from the backend, then each ride is mapped to a row in a table.
+The index page display all the rides available. The list of rides is recieved from the backend through an API call and stored in a state. Each of the rides is then mapped to a row in a table with all the neccessary information.
 ![](screenshot/index.png)
 
 ## Google Maps API
@@ -103,6 +103,22 @@ One of the problem I ran into is how to convert the Ride entries into location m
 
 ![](screenshot/create_ride.png)
 
+# Design
+
+When designing RideBuddies, I wanted the application to be simple and intuitive.
+I wanted users to be able to easily navigate and use my website.
+
+I took an incremental, back to front approach in designing my application. I first implemented
+the user authorization so when I design the rides components, I'll have users ready to test functionality.
+I first I planned out what information I need for the user database. Implement the database based on the
+information I planned out. I then implement the backend logic and set up the api endpoints for the user authorization.
+After designing the backend, I tested all the api endpoint with Insomnia. I then designed the front end Register and Login Page.
+I then connected the frontend pages to the backend by setting up API calls to the api endpoints.
+
+After Designing the User Authorization, I designed the Rides Functionality. Similar to the user authorization, I planned out
+and designed the Rides Schema. I then set up and tested the backend functionality like adding a ride, deleteing a ride,
+getting all the rides, etc. Since I have already set up the backend, I would already have the data ready when designing the frontend.
+
 # Additional Information
 
 ---
@@ -112,7 +128,7 @@ One of the problem I ran into is how to convert the Ride entries into location m
 
 ---
 
-# Possible Future additions
+# Future additions
 
 -  A chat or comment function for communitcation between ride host and passengers
 -  A Leave Ride Function
