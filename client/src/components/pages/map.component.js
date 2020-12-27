@@ -199,14 +199,15 @@ class RideMap extends Component{
                         (<InfoWindow 
                             position={{lat:this.state.selected.lat,lng:this.state.selected.lng}} 
                             onCloseClick={()=>this.setState({selected:null})}>
-                            <div>
-                                <h4>Seats:{this.state.selected.seats}</h4>
-                                <h3>{this.state.selected.group_Name}</h3>
-                                <h4>Where:{this.state.selected.location}</h4>
-                                <h4>Pickup:</h4>
-                                <h5>{this.state.selected.pickup}</h5>
-                                <h4>When:</h4>
-                                <h5>{this.state.selected.date.substring(0,10) + " "+ this.state.selected.time}</h5>
+                             <div className="info-box">
+                                <p className="info-title">{this.state.selected.group_Name}</p>
+                                <p className="info-subtitle">Seats: {this.state.selected.seats}</p>
+                                <p className="info-subtitle">Where:</p>
+                                <p className="info-text">{this.state.selected.location}</p>
+                                <p className="info-subtitle">Pickup:</p>
+                                <p className="info-text">{this.state.selected.pickup}</p>
+                                <p className="info-subtitle">When:</p>
+                                <p className="info-text">{this.state.selected.date.substring(0,10) + " "+ this.state.selected.time}</p>
                                 
                             </div>
                         </InfoWindow>):null}

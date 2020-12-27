@@ -38,13 +38,13 @@ class Landing extends Component{
                             <Link 
                                 to="/register" 
                                 style={button_style}
-                                className="btn btn-primary my-2">Register</Link>
+                                className="btn btn-secondary my-2">Register</Link>
 
 
                             <Link 
                                 to="/login" 
                                 style={button_style}
-                                className="btn btn-secondary my-2">Login</Link>
+                                className="btn btn-primary my-2">Login</Link>
                         </p>
                     </div>
                 </div>
