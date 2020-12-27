@@ -12,7 +12,7 @@ Ride buddies is developed with React.js, Node.js,Express, and MongoDB and is dev
 
 -  User can host a ride by providing information like Group Name, Seats, Destination, Pick location, Date and time.
 -  Google Map API to display Ride destinations and to better help user search for rides
--  User Authorization and using Passport-JWT
+-  User Authorization using Passport-JWT
 -  Rides Index page where users can view and join all available rides
 -  Ride Information card to view all information of a ride
 
