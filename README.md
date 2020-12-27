@@ -109,7 +109,7 @@ When designing RideBuddies, I wanted the application to be simple and intuitive.
 I wanted users to be able to easily navigate and use my website.
 
 I took an incremental, back to front approach in designing my application. I first implemented
-the user authorization so when I design the rides components, I'll have users ready to test functionality.
+the user authorization so when I design the rides components, I'll have users ready to test the functionality.
 I first I planned out what information I need for the user database. Implement the database based on the
 information I planned out. I then implement the backend logic and set up the api endpoints for the user authorization.
 After designing the backend, I tested all the api endpoint with Insomnia. I then designed the front end Register and Login Page.
