@@ -119,6 +119,9 @@ After Designing the User Authorization, I designed the Rides Functionality. Simi
 and designed the Rides Schema. I then set up and tested the backend functionality like adding a ride, deleteing a ride,
 getting all the rides, etc. Since I have already set up the backend, I would already have the data ready when designing the frontend.
 
+The last feature I developed is the Google Maps function. Since the maps function is mainly a frontend function, I mainly use Google Maps API
+documentation and uses existing backend funcitonality like getting rides to integrate the map into my application
+
 # Additional Information
 
 ---
