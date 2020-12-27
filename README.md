@@ -1,6 +1,6 @@
 # RideBuddies
 
-[Live Demo](https://ride-buddies.herokuapp.com/)
+[Live Demo](https://ride-buddies.herokuapp.com/)/
 RideBuddies is an rideshare application where you can host are find rides with other users. Whether you need a find a ride to
 get Boba or need a way to get back home from college, RideBuddies got you covered.
 
