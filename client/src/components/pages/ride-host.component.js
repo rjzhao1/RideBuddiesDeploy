@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 const Passenger = (props) => (
 	<div className="row">
 		<h5 className="col-md-2">
-			<small>{props.passenger.passenger}</small>
+			<small>{props.passenger.passenger_name}</small>
 		</h5>
 		<h5 className="col-sm-3">
 			<small>{props.passenger.passenger_email}</small>

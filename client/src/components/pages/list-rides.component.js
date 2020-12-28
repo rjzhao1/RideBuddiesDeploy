@@ -79,7 +79,7 @@ class RidesList extends Component {
 			window.location = '/login';
 		} else {
 			const passenger = {
-				passenger: this.state.user.username,
+				passenger_name: this.state.user.username,
 				passenger_email: this.state.user.email,
 			};
 			axios

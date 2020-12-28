@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //Schema for passengers
 const passengerSchema = new Schema({
-    passenger:{type:String,required:true},
+    passenger_name:{type:String,required:true},
     passenger_email:{type:String,required:true},
 },{
     timestamps:true,

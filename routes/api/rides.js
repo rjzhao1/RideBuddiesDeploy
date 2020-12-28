@@ -92,9 +92,9 @@ router.route('/:id').delete((req,res)=>{
 // POST /api/rides/join/:id
 // API call for joining a ride 
 // Required parameters from request:
-// passenger,passenger_email
+// passenger_name,passenger_email
 router.route('/join/:id').post((req,res)=>{
-    const passenger = req.body.passenger;
+    const passenger_name = req.body.passenger_name;
     const passenger_email = req.body.passenger_email;
 
     Rides.findOneAndUpdate(
@@ -105,7 +105,7 @@ router.route('/join/:id').post((req,res)=>{
                 res.status(404).json('Ride Group not found or full');
                 
             }else{
-                result.passenger.push({passenger:passenger,passenger_email:passenger_email});
+                result.passenger.push({passenger_name:passenger_name,passenger_email:passenger_email});
                 result.save()
                     .then(res.json("Ride Joined"))
                     .catch(err => res.status(400).json('Error: ' + err));
