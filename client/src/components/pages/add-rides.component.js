@@ -141,7 +141,7 @@ class AddRide extends Component {
 	}
 
 	//Set the state of time
-	onChangeTime(time, timeString) {
+	onChangeTime(timeString) {
 		this.setState({
 			time: timeString,
 		});
