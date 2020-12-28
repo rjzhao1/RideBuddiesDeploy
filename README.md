@@ -20,7 +20,7 @@ Ride buddies is developed with React.js, Node.js,Express, and MongoDB and is dev
 
 ## Landing Page
 
-On the Landing Page, Users are greeted with a welcome message and are given some options to look for rides and view rides the are in.
+On the Landing Page, Users are greeted with a welcome message and are given some options to look for rides and view rides that they are in.
 I have implemented a Navbar that allows users to navigate to different pages using Links from react-routers.
 
 ![](screenshot/Dashboard.png)
