@@ -32,7 +32,7 @@ The index page display all the rides available. The list of rides is recieved fr
 
 ## Google Maps API
 
-Using Google Map API, I was able to display all the rides so that users could visually the ride destinations. For each marker there is a pop up window to show information of the ride. I also use Google Map's geocoding fuction to create a search bar so that Users could search for where they want to go and find if there is a ride available.
+Using Google Map API, I was able to display all the rides so that users could visualize the all ride destinations. For each marker there is a pop up window to show information of the ride. I also use Google Map's geocoding fuction to create a search bar so that Users could search for where they want to go and find if there is a ride available.
 
 ![](screenshot/map.png)
 
