@@ -49,6 +49,8 @@ const port = process.env.PORT||5000;
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true,'useFindAndModify':false})
 
+app.use('/', res.send("Server is running"));
+
 const connection = mongoose.connection;
 
 connection.once('open',()=>{
