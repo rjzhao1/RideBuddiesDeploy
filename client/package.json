@@ -20,7 +20,7 @@
 		"is-empty": "^1.2.0",
 		"jsonwebtoken": "^8.5.1",
 		"jwt-decode": "^2.2.0",
-		"mongoose": "^5.9.22",
+		"mongoose": "^4.13.21",
 		"mongoose-auto-increment": "^5.0.1",
 		"node-cron": "^2.0.3",
 		"passport": "^0.4.1",
